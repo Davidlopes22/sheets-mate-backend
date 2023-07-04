@@ -8,18 +8,6 @@ const dataToIdentifyColumns = ["sheetId","permissionToken"]
 const dataToIdentifyColumnsWithPage = ["sheetId","permissionToken","pageName"]
 
 
-function doPost(e) {
-
-  if (isMissingProperties(e, ["actionRequest"])) {
-    return errorMessage("Missing request actionRequest");
-  } 
-  const requestAction = e.parameter.actionRequest;
-  switch(requestAction) {
-    case "generateCode": return generateCode(e);
-    case "getColumns": return getColumns(e);
-    default: return errorMessage("Invalid request action");
-  }
-}
 function doGet(e) {
   if (isMissingProperties(e.parameters, ["actionRequest"])) {
     return errorMessage("Missing request actionRequest");
